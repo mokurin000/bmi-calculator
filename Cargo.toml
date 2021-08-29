@@ -1,0 +1,19 @@
+[package]
+name = "bmi-calculator"
+version = "0.1.0"
+authors = ["poly000 <1348292515@qq.com>"]
+edition = "2018"
+
+[dependencies]
+ndless = "0.8.6"
+ndless-handler = "0.3.0"
+
+[package.metadata.zehn]
+name = "bmi-calculator"
+compress = true
+notice = "Auto generated with cargo-generate"
+flags = "--240x320-support true"
+
+[profile.release]
+lto = true
+panic = "abort"
