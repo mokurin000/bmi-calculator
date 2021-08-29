@@ -1,49 +1,21 @@
 # bmi-calculator
-Welcome to your Nspire project!
 
-## Prerequisites
-- Ndless toolchain installed and added to path
-- Rustup installed
-- Latest Rust Nightly installed (nightly-2020-05-07 works)
-- Unix-like (tested on Linux, most likely Mac and Cygwin will work as well)
+BMI计算器，基于中华人民共和国统计数据。
 
-Complete install script:
-```bash
-curl https://sh.rustup.rs -sSf | sh # skip if rustup already installed
-rustup install nightly # skip if nightly already installed
-cargo install cargo-ndless
-```
+注意，BMI只是一种指标，不代表体脂率等等。
 
-Get started by running
+## 构建
 
-```bash
-cargo +nightly ndless build
-```
-
-to start development. Your .tns file will be available in
-`target/armv5te-nspire-eabi/debug/bmi-calculator.tns`.
-
-When you're ready to release your application,
-**don't forget to compile in release mode** with
+构建之前，请确保已部署[ndless环境](https://lights0123.com/ndless-rust/)
 
 ```bash
 cargo +nightly ndless build -- --release
 ```
+## 运行
 
-Your .tns file will be available in
-`target/armv5te-nspire-eabi/release/bmi-calculator.tns`.
-
-If you have the Firebird emulator installed, you can also send the compiled
-binary straight to it. Just run:
+如果您有已正常运行的 Firebird Emu ，您可以运行以下命令：
 
 ```bash
-cargo +nightly ndless run
-cargo +nightly ndless run -- --release
+cargo +nightly ndless run #调试构建
+cargo +nightly ndless run -- --release #发布构建
 ```
-
-You may skip `+nightly` if you set nightly as your default compiler
-(`rustup default nightly`), or
-[set a directory override](https://github.com/rust-lang/rustup.rs#directory-overrides).
-
-Check out the [ndless examples](https://github.com/lights0123/example-nspire)
-for more info.
