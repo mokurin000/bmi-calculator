@@ -6,19 +6,17 @@ use ndless::msg::{msg, msg_2numeric};
 use ndless::prelude::*;
 
 fn main() {
-    loop {
-        if let Some((weight, height)) = msg_2numeric(
-            "身体数据",
-            "",
-            "体重（公斤）",
-            (0, i32::MAX),
-            "身高（厘米）",
-            (0, i32::MAX),
-        ) {
-            let (bmi, status) = bmi_calculate(weight, height);
-            msg("BMI", bmi.to_string().as_str());
-            msg("身体状况", status);
-        }
+    while let Some((weight, height)) = msg_2numeric(
+        "身体数据",
+        "",
+        "体重（公斤）",
+        (0, i32::MAX),
+        "身高（厘米）",
+        (0, i32::MAX),
+    ) {
+        let (bmi, status) = bmi_calculate(weight, height);
+        msg("BMI", bmi.to_string().as_str());
+        msg("身体状况", status);
     }
 }
 
