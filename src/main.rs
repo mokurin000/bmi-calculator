@@ -10,9 +10,9 @@ fn main() {
         "身体数据",
         "",
         "体重 (公斤)",
-        (1, i32::MAX),
+        (0, i32::MAX),
         "身高 (厘米)",
-        (1, i32::MAX),
+        (0, i32::MAX),
     ) {
         let (bmi, status) = bmi_calculate(weight, height);
         msg("BMI", bmi.to_string().as_str());
@@ -30,7 +30,8 @@ fn bmi_calculate(weight: i32, height: i32) -> (f64, &'static str) {
         _ if bmi < 28.0 => "超重 (亚肥胖)",
         _ if bmi < 30.0 => "肥胖一级",
         _ if bmi < 40.0 => "肥胖二级",
-        _ => "肥胖三级",
+        _ if bmi.is_finite() => "肥胖三级",
+        _ => "输入错误",
     };
 
     (bmi, status)
