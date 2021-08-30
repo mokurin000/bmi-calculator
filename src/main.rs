@@ -9,9 +9,9 @@ fn main() {
     while let Some((weight, height)) = msg_2numeric(
         "身体数据",
         "",
-        "体重（公斤）",
+        "体重 (公斤)",
         (0, i32::MAX),
-        "身高（厘米）",
+        "身高 (厘米)",
         (0, i32::MAX),
     ) {
         let (bmi, status) = bmi_calculate(weight, height);
@@ -27,7 +27,7 @@ fn bmi_calculate(weight: i32, height: i32) -> (f64, &'static str) {
     let status = match bmi {
         _ if bmi < 18.5 => "过轻",
         _ if bmi < 24.0 => "正常",
-        _ if bmi < 28.0 => "超重（亚肥胖）",
+        _ if bmi < 28.0 => "超重 (亚肥胖)",
         _ if bmi < 30.0 => "肥胖一级",
         _ if bmi < 40.0 => "肥胖二级",
         _ => "肥胖三级",
